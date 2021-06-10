@@ -19,6 +19,7 @@ class LoginTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function logintest()
     {
         $user = ['email' => 'kocsisaszlo633@gmail.com',
@@ -27,7 +28,7 @@ class LoginTest extends TestCase
         $response = $this->post('login',$user);
         
 
-        $response->assertStatus(302);
+        $response->assertStatus(200);
 
     }
 }

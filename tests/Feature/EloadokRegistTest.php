@@ -38,7 +38,5 @@ class EloadokRegistTest extends TestCase
         
 
         $response->assertStatus(302);
-
-        //$this->assertAuthenticated();
     }
 }
