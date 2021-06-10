@@ -25,6 +25,6 @@ deploy:
   provider: heroku
   edge: true
   api_key: 51c605bb-3173-40e4-8388-8517e857de28
-  app: laravelci
+  app: allamvizsgafinal
   on:
     branch: main
