@@ -9,7 +9,7 @@ services:
 before_script:
     - composer update
     - cp .env.example .env
-    - mysql -e 'CREATE DATABASE laravel;'
+    - mysql -e 'CREATE DATABASE sapieconf;'
     - php artisan key:generate
     - php artisan migrate
 
