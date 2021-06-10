@@ -21,3 +21,8 @@ branches:
     - master
     - dev
     - main
+
+deploy:
+  provider: heroku
+  api_key:
+  secure: 51c605bb-3173-40e4-8388-8517e857de28

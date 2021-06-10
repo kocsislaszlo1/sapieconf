@@ -14,18 +14,22 @@ class LoginTest extends TestCase
      * @return void
      */
     public function test()
-    {
+    {  $response=$this->withoutExceptionHandling();
         $response = $this->get('/login');
 
         $response->assertStatus(200);
     }
-
-    public function logintest()
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function login_test()
     {
         $user = ['email' => 'kocsisaszlo633@gmail.com',
-        'password' => 'valami1234'];
+        'password' => 'valami15555234'];
 
-        $response = $this->post('login',$user);
+        $response = $this->post('/login',$user);
         
 
         $response->assertStatus(200);

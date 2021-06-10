@@ -37,6 +37,6 @@ class EloadokRegistTest extends TestCase
         $response = $this->post('regist',$user);
         
 
-        $response->assertStatus(302);
+        $response->assertStatus(200);
     }
 }
