@@ -1,0 +1,29 @@
+language: php
+
+php:
+  - 7.3
+
+services:
+  - mysql
+
+before_script:
+    - composer update
+    - cp .env.example .env
+    - mysql -e 'CREATE DATABASE laravel;'
+    - php artisan key:generate
+    - php artisan migrate
+
+script:
+  - phpunit
+
+branches:
+  only:
+    - master
+    - dev
+    - main
+
+deploy:
+  provider: heroku
+  edge: true
+  api_key:9IeCqIg8sHI3HBLOAmR2nZgm5syMgioG3/wr+gg8K7w=
+  app: allamvizsgafinal
