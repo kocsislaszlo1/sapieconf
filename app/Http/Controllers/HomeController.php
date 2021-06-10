@@ -29,7 +29,7 @@ class HomeController extends Controller
 
         $eloadok = Eloadok::all();
         $szekciok=Szekciok::all();
-        $esemenyek=Esemenyek::first();
+        $esemenyek=Esemenyek::find(1);
         $plenarisok=Plenaris::all();
         $moderatorok=DB::table('users')
         ->join('moderatorok','users.id','=','moderatorok.users_id')
