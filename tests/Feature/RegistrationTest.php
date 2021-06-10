@@ -23,7 +23,7 @@ class RegistrationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->post('register', [
+        $response = $this->post('regist', [
             'name' => $user->name,
             'email' => $user->email,
             'password' => 'password',
@@ -38,7 +38,7 @@ class RegistrationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->post('register', [
+        $response = $this->post('regist', [
             'name' => $user->name,
             'email' => $user->email,
             'password' => 'password',
