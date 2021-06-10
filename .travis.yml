@@ -28,3 +28,4 @@ deploy:
   app: allamvizsgafinal
   on:
     branch: main
+    
