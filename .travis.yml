@@ -11,7 +11,7 @@ before_script:
     - cp .env.example .env
     - mysql -e 'CREATE DATABASE sapieconf;'
     - php artisan key:generate
-    - php artisan migrate:fresh --seed
+    - php artisan migrate
 
 script:
   - phpunit
