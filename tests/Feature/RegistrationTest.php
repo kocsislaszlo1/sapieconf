@@ -9,21 +9,27 @@ use App\Models\User;
 class RegistrationTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * The registration form can be displayed.
      *
      * @return void
      */
-    public function test_example()
+    public function testRegisterFormDisplayed()
     {
-        $response = $this->get('/');
+        $response = $this->get('/register');
 
         $response->assertStatus(200);
     }
+
+    /**
+     * A valid user can be registered.
+     *
+     * @return void
+     */
     public function testRegistersAValidUser()
     {
         $user = User::factory()->create();
 
-        $response = $this->post('regist', [
+        $response = $this->post('register', [
             'name' => $user->name,
             'email' => $user->email,
             'password' => 'password',
@@ -34,11 +40,17 @@ class RegistrationTest extends TestCase
 
         //$this->assertAuthenticated();
     }
-     public function testDoesNotRegisterAnInvalidUser()
+
+    /**
+     * An invalid user is not registered.
+     *
+     * @return void
+     */
+    public function testDoesNotRegisterAnInvalidUser()
     {
         $user = User::factory()->create();
 
-        $response = $this->post('regist', [
+        $response = $this->post('register', [
             'name' => $user->name,
             'email' => $user->email,
             'password' => 'password',
@@ -49,4 +61,5 @@ class RegistrationTest extends TestCase
 
         $this->assertGuest();
     }
+
 }
