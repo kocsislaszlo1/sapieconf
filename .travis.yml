@@ -21,9 +21,3 @@ branches:
     - master
     - dev
     - main
-
-deploy:
-  provider: heroku
-  edge: true
-  api_key:9IeCqIg8sHI3HBLOAmR2nZgm5syMgioG3/wr+gg8K7w=
-  app: allamvizsgafinal
