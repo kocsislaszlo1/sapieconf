@@ -8,58 +8,39 @@ use Tests\TestCase;
 use App\Models\User;
 class RegistrationTest extends TestCase
 {
-    /**
-     * The registration form can be displayed.
-     *
-     * @return void
-     */
-    public function testRegisterFormDisplayed()
+    protected function successfulRegistrationRoute()
     {
-        $response = $this->get('/register');
-
-        $response->assertStatus(200);
+        return route('home');
     }
 
-    /**
-     * A valid user can be registered.
-     *
-     * @return void
-     */
-    public function testRegistersAValidUser()
+    protected function registerGetRoute()
     {
-        $user = User::factory()->create();
-
-        $response = $this->post('register', [
-            'name' => $user->name,
-            'email' => $user->email,
-            'password' => 'password',
-            'password_confirmation' => 'password'
-        ]);
-
-        $response->assertStatus(302);
-
-        //$this->assertAuthenticated();
+        return route('register');
     }
 
-    /**
-     * An invalid user is not registered.
-     *
-     * @return void
-     */
-    public function testDoesNotRegisterAnInvalidUser()
+    protected function registerPostRoute()
     {
-        $user = User::factory()->create();
-
-        $response = $this->post('register', [
-            'name' => $user->name,
-            'email' => $user->email,
-            'password' => 'password',
-            'password_confirmation' => 'invalid'
-        ]);
-
-        $response->assertSessionHasErrors();
-
-        $this->assertGuest();
+        return route('register');
     }
 
+    protected function guestMiddlewareRoute()
+    {
+        return route('home');
+    }
+
+    public function testUserCanViewARegistrationForm()
+    {
+        $response = $this->get($this->registerGetRoute());
+
+        $response->assertSuccessful();
+        $response->assertViewIs('auth.register');
+    }
+    public function testUserCannotViewARegistrationFormWhenAuthenticated()
+    {
+        $user = User::factory()->make();
+
+        $response = $this->actingAs($user)->get($this->registerGetRoute());
+
+        $response->assertRedirect($this->guestMiddlewareRoute());
+    }
 }

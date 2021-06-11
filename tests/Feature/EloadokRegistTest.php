@@ -19,14 +19,10 @@ class EloadokRegistTest extends TestCase
 
         $response->assertStatus(200);
     }
-     /**
-     * A valid user can be registered.
-     *
-     * @return void
-     */
-    public function registtest()
+    
+    public function test_regist()
     {
-        $user = ['nev' => 'Nev',
+        $user = ['nev' => 'tesztnev',
         'fokozat' => 'Dr',
         'intezmeny' => 'Sapientia',
         'eloadascim' => 'cim',
@@ -37,6 +33,6 @@ class EloadokRegistTest extends TestCase
         $response = $this->post('regist',$user);
         
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 }
