@@ -76,30 +76,6 @@ class LoginTest extends TestCase
         $this->assertAuthenticatedAs($user);
     }
 
-    public function testRememberMeFunctionality()
-    {
-        $user = User::factory()->create([
-            'id' => random_int(1, 100),
-            'password' => Hash::make($password = 'i-love-laravel'),
-        ]);
-
-        $response = $this->post($this->loginPostRoute(), [
-            'email' => $user->email,
-            'password' => $password,
-            'remember' => 'on',
-        ]);
-
-        $user = $user->fresh();
-
-        $response->assertRedirect($this->successfulLoginRoute());
-        $response->assertCookie(Auth::guard()->getRecallerName(), vsprintf('%s|%s|%s', [
-            $user->id,
-            $user->getRememberToken(),
-            $user->password,
-        ]));
-        $this->assertAuthenticatedAs($user);
-    }
-
     public function testUserCannotLoginWithIncorrectPassword()
     {
         $user = User::factory()->create([
@@ -150,34 +126,4 @@ class LoginTest extends TestCase
         $this->assertGuest();
     }
 
-    public function testUserCannotMakeMoreThanFiveAttemptsInOneMinute()
-    {
-        $user = User::factory()->create([
-            'password' => Hash::make($password = 'i-love-laravel'),
-        ]);
-
-        foreach (range(0, 5) as $_) {
-            $response = $this->from($this->loginGetRoute())->post($this->loginPostRoute(), [
-                'email' => $user->email,
-                'password' => 'invalid-password',
-            ]);
-        }
-
-        $response->assertRedirect($this->loginGetRoute());
-        $response->assertSessionHasErrors('email');
-        $this->assertMatchesRegularExpression(
-            $this->getTooManyLoginAttemptsMessage(),
-            collect(
-                $response
-                    ->baseResponse
-                    ->getSession()
-                    ->get('errors')
-                    ->getBag('default')
-                    ->get('email')
-            )->first()
-        );
-        $this->assertTrue(session()->hasOldInput('email'));
-        $this->assertFalse(session()->hasOldInput('password'));
-        $this->assertGuest();
-    }
 }

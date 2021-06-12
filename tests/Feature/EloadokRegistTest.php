@@ -20,7 +20,7 @@ class EloadokRegistTest extends TestCase
         $response->assertStatus(200);
     }
     
-    public function test_regist()
+    public function testRegistersAValidUser()
     {
         $user = ['nev' => 'tesztnev',
         'fokozat' => 'Dr',
@@ -34,5 +34,20 @@ class EloadokRegistTest extends TestCase
         
 
         $response->assertStatus(302);
+    }
+    public function testDoesNotRegisterAnInvalidUser()
+    {
+        $user = ['nev' => '',
+        'fokozat' => 'Dr',
+        'intezmeny' => 'Sapientia',
+        'eloadascim' => 'cim',
+        'email' => 'valami@gmail.com',
+        'kivonat' => 'kivonat helye ',
+        'szekcio_id' => '1'];
+        $response = $this->post('regist',$user);
+
+        $response->assertSessionHasErrors();
+
+        $this->assertGuest();
     }
 }
