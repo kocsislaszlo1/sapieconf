@@ -6,7 +6,7 @@
         <div class="col-md-6">
             <div class="card uper">
                 <div class="card-header">
-                    Edit Eloado
+                    Előadó módositása
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -56,7 +56,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Frissít</button>
                         <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i>
                             Vissza</a>
                     </form>

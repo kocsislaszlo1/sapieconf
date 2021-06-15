@@ -10,7 +10,7 @@
             @endif
             <div class="table-responsive">
                 <div class="mb-2">
-                    <a href="{{ route('dashboard.plenaris.create') }}" class="btn btn-primary">Create plenaris</a>
+                    <a href="{{ route('dashboard.plenaris.create') }}" class="btn btn-primary"> Plenáris előadó létrehozása</a>
 
                     <table class=" table table-bordered table-striped table-hover">
                         <thead>
@@ -38,13 +38,13 @@
                                     <td>{{ $plenaris->kezdete }}</td>
                                     <td>{{ $plenaris->vege }}</td>
                                     <td><a href="{{ route('dashboard.plenaris.edit', $plenaris->id) }}"
-                                            class="btn btn-primary">Edit</a></td>
+                                            class="btn btn-primary">Szerkezt</a></td>
                                     <td>
                                         <form action="{{ route('dashboard.plenaris.delete', $plenaris->id) }}"
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger" type="submit">Törlés</button>
                                         </form>
                                     </td>
                                 </tr>

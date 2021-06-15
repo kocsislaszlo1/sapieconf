@@ -10,27 +10,6 @@ use App\Models\Eloadok;
 class SzekcioidoController extends Controller
 {
 
-    public function store(Request $request)
-    {
-
-        $request->validate([
-            'szekcionev' => 'required',
-            'idopont' => 'required',
-            'link' => 'required',
-            'online' => 'required',
-            'esemenyek_id' => 'required',
-        ]);
-        $szekcio = new Szekciok([
-            'szekcionev' => $request->input('szekcionev'),
-            'idopont' => $request->input('idopont'),
-            'link' => $request->input('link'),
-            'online' => $request->input('online'),
-            'esemenyek_id' => $request->input('esemenyek_id'),
-        ]);
-        $szekcio->save();
-
-        return redirect('/admin/szekciok')->with('status', 'Szekcio hozzadva');
-    }
     public  function delete($eloado_id)
     {
         $szekcio = Szekciok::find($eloado_id);

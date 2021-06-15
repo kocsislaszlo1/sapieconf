@@ -20,7 +20,7 @@ class EsemenyController extends Controller
     {
 
         $request->validate([
-            'esemenynev' => 'required|string',
+            'esemenynev' => 'required',
             'tema' => 'required',
             'datum' => 'required',
         ]);
@@ -46,7 +46,7 @@ class EsemenyController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'esemenynev' => 'required|string',
+            'esemenynev' => 'required',
             'tema' => 'required',
             'datum' => 'required',
         ]);

@@ -18,12 +18,12 @@ class RegistController extends Controller
     {
         $szekciok = $request->input('szekcio_id');
         $request->validate([
-            'nev' => 'required|string',
-            'fokozat' => 'required|string',
-            'intezmeny' => 'required|string',
-            'eloadascim' => 'required|string',
+            'nev' => 'required|alpha',
+            'fokozat' => 'required',
+            'intezmeny' => 'required',
+            'eloadascim' => 'required',
             'email' => 'required|email',
-            'kivonat' => 'required|string',
+            'kivonat' => 'required',
             'szekcio_id' => 'required|integer'
         ]);
         $eloadok = new Eloadok([

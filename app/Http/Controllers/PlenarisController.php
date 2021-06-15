@@ -22,7 +22,7 @@ class PlenarisController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nev' => 'required|string',
+            'nev' => 'required|alpha',
             'fokozat' => 'required|string',
             'intezmeny' => 'required|string',
             'eloadascim' => 'required|string',
@@ -62,12 +62,12 @@ class PlenarisController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nev' => 'required|string',
-            'fokozat' => 'required|string',
-            'intezmeny' => 'required|string',
-            'eloadascim' => 'required|string',
+            'nev' => 'required|alpha',
+            'fokozat' => 'required',
+            'intezmeny' => 'required',
+            'eloadascim' => 'required',
             'email' => 'required|email',
-            'kivonat' => 'required|string',
+            'kivonat' => 'required',
             'kezdete' => 'required',
             'vege' => 'required',
             'esemenyek_id' => 'required|integer'

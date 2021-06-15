@@ -28,13 +28,13 @@
                                     <td>{{ $moderator->users_id }}</td>
                                     <td>{{ $moderator->szekciok_id }}</td>
                                     <td><a href="{{ route('dashboard.moderatorok.edit', $moderator->id) }}"
-                                            class="btn btn-primary">Edit</a></td>
+                                            class="btn btn-primary">Szerkezt</a></td>
                                     <td>
                                         <form action="{{ route('dashboard.moderatorok.delete', $moderator->id) }}"
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger" type="submit">Törlés</button>
                                         </form>
                                     </td>
                                 </tr>

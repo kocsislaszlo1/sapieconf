@@ -10,7 +10,7 @@
              @endif
              <div class="table-responsive">
                  <div class="mb-2">
-                     <a href="{{ route('dashboard.esemenyek.create') }}" class="btn btn-primary">Create esemeny</a>
+                     <a href="{{ route('dashboard.esemenyek.create') }}" class="btn btn-primary">Esemény létrehozása</a>
                      <table class=" table table-bordered table-striped table-hover">
                          <thead>
                              <tr>
@@ -29,13 +29,13 @@
                                      <td>{{ $esemeny->tema }}</td>
                                      <td>{{ $esemeny->datum }}</td>
                                      <td><a href="{{ route('dashboard.esemenyek.edit', $esemeny->id) }}"
-                                             class="btn btn-primary">Edit</a></td>
+                                             class="btn btn-primary">Szerkezt</a></td>
                                      <td>
                                          <form action="{{ route('dashboard.esemenyek.delete', $esemeny->id) }}"
                                              method="post">
                                              @csrf
                                              @method('DELETE')
-                                             <button class="btn btn-danger" type="submit">Delete</button>
+                                             <button class="btn btn-danger" type="submit">Törlés</button>
                                          </form>
                                      </td>
                                  </tr>

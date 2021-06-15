@@ -39,11 +39,6 @@ class LoginTest extends TestCase
         return route('home');
     }
 
-    protected function getTooManyLoginAttemptsMessage()
-    {
-        return sprintf('/^%s$/', str_replace('\:seconds', '\d+', preg_quote(__('auth.throttle'), '/')));
-    }
-
     public function testUserCanViewALoginForm()
     {
         $response = $this->get($this->loginGetRoute());
@@ -64,7 +59,7 @@ class LoginTest extends TestCase
     public function testUserCanLoginWithCorrectCredentials()
     {
         $user = User::factory()->create([
-            'password' => Hash::make($password = 'i-love-laravel'),
+            'password' => Hash::make($password = 'tesztpassword'),
         ]);
 
         $response = $this->post($this->loginPostRoute(), [
@@ -75,11 +70,10 @@ class LoginTest extends TestCase
         $response->assertRedirect($this->successfulLoginRoute());
         $this->assertAuthenticatedAs($user);
     }
-
     public function testUserCannotLoginWithIncorrectPassword()
     {
         $user = User::factory()->create([
-            'password' => Hash::make('i-love-laravel'),
+            'password' => Hash::make('tesztpassword'),
         ]);
 
         $response = $this->from($this->loginGetRoute())->post($this->loginPostRoute(), [
@@ -93,7 +87,6 @@ class LoginTest extends TestCase
         $this->assertFalse(session()->hasOldInput('password'));
         $this->assertGuest();
     }
-
     public function testUserCannotLoginWithEmailThatDoesNotExist()
     {
         $response = $this->from($this->loginGetRoute())->post($this->loginPostRoute(), [

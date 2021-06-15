@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card uper">
                 <div class="card-header">
-                    Add szekcio
+                  Szekció létrehozása
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -49,7 +49,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary">Hozzáad</button>
                         <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i>
                             Vissza</a>
                     </form>

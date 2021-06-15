@@ -24,9 +24,9 @@ class SzekcioController extends Controller
     {
 
         $request->validate([
-            'szekcionev' => 'required|string',
-            'idopont' => 'required|string',
-            'link' => 'required|string',
+            'szekcionev' => 'required',
+            'idopont' => 'required',
+            'link' => 'required',
             'online' => 'required|integer',
             'esemenyek_id' => 'required|integer',
         ]);
@@ -57,7 +57,7 @@ class SzekcioController extends Controller
     {
         $request->validate([
             'szekcionev' => 'required|string',
-            'idopont' => 'required|string',
+            'idopont' => 'required',
             'link' => 'required|string',
             'online' => 'required|integer',
             'esemenyek_id' => 'required|integer',
