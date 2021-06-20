@@ -23,7 +23,7 @@ class EloadoController extends Controller
     {
         $szekciok = $request->input('szekcio_id');
         $request->validate([
-            'nev' => 'required|alpha',
+            'nev' => 'required',
             'fokozat' => 'required',
             'intezmeny' => 'required',
             'eloadascim' => 'required',
@@ -59,7 +59,7 @@ class EloadoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nev' => 'required|alpha',
+            'nev' => 'required',
             'fokozat' => 'required',
             'intezmeny' => 'required',
             'eloadascim' => 'required',
@@ -78,6 +78,6 @@ class EloadoController extends Controller
         $eloadok->szekciok()->sync([$szekciok]);
         $eloadok->save();
 
-        return redirect('/admin/eloadok')->with('status', 'Eloado frisitve');
+        return redirect('/admin/eloadok')->with('status', 'Eloado frissitve');
     }
 }

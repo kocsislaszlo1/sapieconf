@@ -34,7 +34,7 @@ class ModeratorokController extends Controller
             'szekciok_id' => $request->input('szekcio_id'),
         ]);
         $moderatorok->save();
-        return redirect('/admin/moderatorok')->with('status', 'Moderator hozzadva');
+        return redirect('/admin/moderatorok')->with('status', 'Moderator hozzaadva');
     }
     public  function delete($id)
     {
@@ -59,6 +59,6 @@ class ModeratorokController extends Controller
         $moderatorok->users_id = $request->input('users_id');
         $moderatorok->szekciok_id = $request->input('szekcio_id');
         $moderatorok->save();
-        return redirect('/admin/moderatorok')->with('status', 'Moderator frisitve');
+        return redirect('/admin/moderatorok')->with('status', 'Moderator frissitve');
     }
 }

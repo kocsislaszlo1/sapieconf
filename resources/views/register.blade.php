@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Regisztracio</title>
+    <title>Registration</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Google Fonts -->
@@ -49,45 +49,45 @@
                             <form method="POST" action="{{ route('regist') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="nev">nev:</label>
+                                    <label for="nev">Name:</label>
                                     <input type="text" class="form-control" name="nev" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="fokozat">fokozat:</label>
+                                    <label for="fokozat">Degree:</label>
                                     <input type="text" class="form-control" name="fokozat" />
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="intezmeny">intezmeny:</label>
+                                    <label for="intezmeny">Institution:</label>
                                     <input type="text" class="form-control" name="intezmeny" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="eloadascim">eloadas cime:</label>
+                                    <label for="eloadascim">Presentation title:</label>
                                     <input type="text" class="form-control" name="eloadascim" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email">email:</label>
+                                    <label for="email">Email:</label>
                                     <input type="email" class="form-control" name="email" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="kivonat">kivonat:</label>
+                                    <label for="kivonat">Extract:</label>
                                     <input type="text" class="form-control" name="kivonat" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="szekcio_id">szekciok:</label>
+                                    <label for="szekcio_id">Sections:</label>
                                     <select id="szekcio_id" name="szekcio_id" class="form-control">
-                                        <option value="">-- Melyik szekcio --</option>
+                                        <option value="">-- Which section? --</option>
                                         @foreach ($szekciok as $szekcio)
                                             <option value="{{ Str::slug($szekcio->id) }}">{{ $szekcio->szekcionev }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Regisztracio</button>
-                                <a class="btn btn-primary" href="{{ route('home') }}">Vissza</a>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                                <a class="btn btn-primary" href="{{ route('home') }}">Back</a>
                             </form>
                         </div>
                     </div>

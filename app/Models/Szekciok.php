@@ -21,7 +21,6 @@ class Szekciok extends Model
     }
     public function eloadok()
     {
-
         return $this->belongsToMany(Eloadok::class, 'eloadok_szekciok', 'szekcio_id', 'eloado_id')->withPivot(['kezdete', 'vege']);
     }
     public function moderatorok()

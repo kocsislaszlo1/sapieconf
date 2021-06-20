@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label for="fokozat">fokozat:</label>
-                            <input type="text" class="form-control" name="fokozat" value="{{ $eloadok->nev }}" />
+                            <input type="text" class="form-control" name="fokozat" value="{{ $eloadok->fokozat }}" />
 
                         </div>
 

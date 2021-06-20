@@ -18,7 +18,7 @@ class RegistController extends Controller
     {
         $szekciok = $request->input('szekcio_id');
         $request->validate([
-            'nev' => 'required|alpha',
+            'nev' => 'required',
             'fokozat' => 'required',
             'intezmeny' => 'required',
             'eloadascim' => 'required',
@@ -37,6 +37,6 @@ class RegistController extends Controller
 
         $eloadok->save();
         $eloadok->szekciok()->attach($szekciok);
-        return redirect('/regist')->with('status', 'Sikeres  regisztracio');
+        return redirect('/regist')->with('status', 'Registration Successful');
     }
 }

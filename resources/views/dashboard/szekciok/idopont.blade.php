@@ -71,15 +71,18 @@
                                             method="post">
                                             @csrf
                                             @method('DELETE')
+                                            <input type="hidden" name="szekcio_id" value="{{ $szekcio->id }}" />
                                             <button class="btn btn-danger" type="submit">Törlés</button>
                                         </form>
                                     </td>
 
                                 </tr>
+                                
                             @endforeach
                         </tbody>
                     </table>
-
+                    <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Vissza</a>
+                                                       
                 </div>
 
             </div>

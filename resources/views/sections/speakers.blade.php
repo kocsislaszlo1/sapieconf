@@ -17,8 +17,8 @@
             <div class="details">
               <h3><a href="" >{{ $plenaris->nev }}</a></h3>
               <p>{{$plenaris->eloadascim}}</p>
-              <p>eloadas kezdete:{{$plenaris->kezdete}}</p>
-              <p>eloadas vege:{{$plenaris->vege}}</p>
+              <p>Start:{{$plenaris->kezdete}}</p>
+              <p>End:{{$plenaris->vege}}</p>
               <div class="social">
                 <p>{{$plenaris->email}}</p>
                 <p>{{$plenaris->intezmeny}}</p>

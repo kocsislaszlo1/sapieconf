@@ -10,10 +10,10 @@ use App\Models\Eloadok;
 class SzekcioidoController extends Controller
 {
 
-    public  function delete($eloado_id)
+    public  function delete($id)
     {
-        $szekcio = Szekciok::find($eloado_id);
-        $szekcio->eloadok()->detach($szekcio);
+        $szekcio = Szekciok::find($id);
+        $szekcio->eloadok()->updateExistingPivot($szekcio,["kezdete"=>null,'vege'=>null]);
         return redirect('/admin/szekciok')->with('status', 'idopont torolve');
     }
     public function edit($id)
@@ -33,7 +33,7 @@ class SzekcioidoController extends Controller
         $eloadok->szekciok()->updateExistingPivot($elid, ['kezdete' => $kezdete]);
 
         $eloadok->save();
-        return redirect('/admin/szekciok')->with('status', 'ido frisitve');
+        return redirect('/admin/szekciok')->with('status', 'ido frissitve');
     }
     public function update2(Request $request, $id)
     {
@@ -44,6 +44,6 @@ class SzekcioidoController extends Controller
         $eloadok->szekciok()->updateExistingPivot($elid, ['vege' => $vege]);
 
         $eloadok->save();
-        return redirect('/admin/szekciok')->with('status', 'ido frisitve');
+        return redirect('/admin/szekciok')->with('status', 'ido frissitve');
     }
 }

@@ -14,9 +14,9 @@
       @foreach ($szekciok as $szekcio) 
      
      
-        <p class="szekciocim">{{$szekcio->szekcionev}},szekcio kezdete:{{$szekcio->idopont}}</p>
+        <p class="szekciocim">{{$szekcio->szekcionev}},start of section:{{$szekcio->idopont}}</p>
         @if($szekcio->online==1)<p class="link">
-        <a href="{{$szekcio->link}}">link:{{$szekcio->link}}</a>
+        <a href="{{$szekcio->link}}">Link:{{$szekcio->link}}</a>
         </p>
         @endif
         @foreach($moderatorok as $mod)
@@ -24,18 +24,14 @@
         <p class="mod">moderator:{{$mod->name}}</p>
         @endif
         @endforeach
-        @foreach ($szekcio->eloadok as $szekcio) 
+        @foreach ($szekcio->eloadok as $eloado) 
+     
           <div class="row schedule-item">                
-              <div class="col-md-1">Kezdete<time>{{$szekcio->pivot->kezdete}}</time></div>
-               <div class="col-md-1">Vege<time>{{$szekcio->pivot->vege}}</time></div>                                      
+              <div class="col-md-1">Start<time>{{$eloado->pivot->kezdete}}</time></div>
+               <div class="col-md-1">End<time>{{$eloado->pivot->vege}}</time></div>                                      
               <div class="col-md-10">
-                {{-- @if($szekcio)
-                  <div class="speaker">
-                    <img src="" alt="{{$szekcio->nev}}">
-                  </div> 
-                @endif--}}
-                <h4>{{ $szekcio->eloadascim }} @if($szekcio)<br><span> {{$szekcio->fokozat}} {{$szekcio->nev }}</span>@endif</h4>
-               <h4>{{$szekcio->intezmeny}}</h4>
+                <h4>{{ $eloado->eloadascim }}<br><span>{{$eloado->fokozat}} {{$eloado->nev }}</span></h4>
+               <h4>{{$eloado->intezmeny}}</h4>
               
               </div>
             </div>

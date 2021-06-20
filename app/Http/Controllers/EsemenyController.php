@@ -55,6 +55,6 @@ class EsemenyController extends Controller
         $esemeny->tema = $request->input('tema');
         $esemeny->datum = $request->input('datum');
         $esemeny->save();
-        return redirect('/admin/esemenyek')->with('status', 'Esemeny frisitve');
+        return redirect('/admin/esemenyek')->with('status', 'Esemeny frissitve');
     }
 }

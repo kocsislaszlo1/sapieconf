@@ -22,12 +22,12 @@ class PlenarisController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nev' => 'required|alpha',
-            'fokozat' => 'required|string',
-            'intezmeny' => 'required|string',
-            'eloadascim' => 'required|string',
+            'nev' => 'required',
+            'fokozat' => 'required',
+            'intezmeny' => 'required',
+            'eloadascim' => 'required',
             'email' => 'required|email',
-            'kivonat' => 'required|string',
+            'kivonat' => 'required',
             'kezdete' => 'required',
             'vege' => 'required',
             'esemenyek_id' => 'required|integer'
@@ -62,7 +62,7 @@ class PlenarisController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nev' => 'required|alpha',
+            'nev' => 'required',
             'fokozat' => 'required',
             'intezmeny' => 'required',
             'eloadascim' => 'required',
@@ -85,6 +85,6 @@ class PlenarisController extends Controller
         $plenarisok->esemenyek_id = $request->input('esemenyek_id');
         $plenarisok->save();
 
-        return redirect('/admin/plenaris')->with('status', 'Plenaris frisitve');
+        return redirect('/admin/plenaris')->with('status', 'Plenaris frissitve');
     }
 }

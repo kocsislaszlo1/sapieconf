@@ -104,6 +104,7 @@ class EloadokSeeder extends Seeder
             ],
         
         ];
+        
         foreach($eloadok as $eloado)
         {
             $elo=Eloadok::create($eloado);
