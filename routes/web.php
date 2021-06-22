@@ -10,7 +10,7 @@ use App\Http\Controllers\RegistController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\SzekcioidoController;
 use App\Http\Controllers\PlenarisController;
-
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +28,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/logout', [LogOutController::class, 'logout'])->name('logout');
 Route::get('/regist', [RegistController::class, 'index'])->name('regist');
 Route::post('/regist', [RegistController::class, 'store'])->name('regist');
+Route::post('/mail', [MailController::class, 'store'])->name('mail');
 
 Route::group(['middleware' => ['role:super-admin|admin|moderator']], function () {
 

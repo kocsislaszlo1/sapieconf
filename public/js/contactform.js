@@ -1,6 +1,10 @@
 jQuery(document).ready(function($) {
   "use strict";
-
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
   //Contact
   $('form.contactForm').submit(function() {
     var f = $(this).find('.form-group'),
@@ -89,18 +93,26 @@ jQuery(document).ready(function($) {
       }
     });
     if (ferror) return false;
-    else var str = $(this).serialize();
-    var action = $(this).attr('action');
-    if( ! action ) {
-      action = 'contactform/contactform.php';
-    }
+    else 
+  var name = $("#name").val();
+    var email = $("#email").val();
+    var subject = $("#subject").val();
+    var message = $('[name=message]').val();
+    // var _token = $("input[name='_token']").val();
+    let url = $(this).attr('action');
+  
     $.ajax({
       type: "POST",
-      url: action,
-      data: str,
-      success: function(msg) {
-        // alert(msg);
-        if (msg == 'OK') {
+      url: url, 
+      data: {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+    },
+      success: function(response) {
+       // alert(msg);
+        if (response.code == 200) {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
           $('.contactForm').find("input, textarea").val("");

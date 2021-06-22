@@ -29,7 +29,7 @@
         <div class="contact-email">
           <i class="ion-ios-email-outline"></i>
           <h3>Email</h3>
-           <p><a href="valami@google.com">kocsislaszlo633@gmail.com</a></p>
+           <p><a href="kocsislaszlo@uni.sapientia.ro">kocsislaszlo@uni.sapientia.ro</a></p>
         </div>
       </div>
 
@@ -38,7 +38,8 @@
     <div class="form">
       <div id="sendmessage">Your message has been sent. Thank you!</div>
       <div id="errormessage"></div>
-      <form action="" method="post" role="form" class="contactForm">
+      <form action="{{ route('mail') }}" method="post" role="form" class="contactForm">
+        @csrf
         <div class="form-row">
           <div class="form-group col-md-6">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
