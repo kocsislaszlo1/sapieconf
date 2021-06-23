@@ -17,6 +17,8 @@ class MailController extends Controller
             'subject' => 'required',
             'message'=>'required',
         ]);
+      
+
          $receiver = "kocsislaszlo@uni.sapientia.ro";
          Mail::to($receiver)->send(new contact($msg));
             return response()->json(['code' => 200, 'msg' => 'Thanks for contacting us, we will get back to you soon.']);

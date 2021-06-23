@@ -27,8 +27,8 @@ class contact extends Mailable
      * @return $this
      */
     public function build()
-    {
-        return $this->from('kocsislaszlo@uni.sapientia.ro')
+    {   $msg=$this->msg;
+        return $this->from($msg['email'])
         ->markdown('mail.email');
     }
 }

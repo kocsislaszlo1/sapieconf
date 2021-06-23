@@ -21,7 +21,7 @@
         @endif
         @foreach($moderatorok as $mod)
         @if($mod->szekciok_id==$szekcio->id)
-        <p class="mod">moderator:{{$mod->name}}</p>
+        <p class="mod">moderator: {{$mod->name}}</p>
         @endif
         @endforeach
         @foreach ($szekcio->eloadok as $eloado) 
