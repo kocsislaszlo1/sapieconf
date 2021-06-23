@@ -24,7 +24,7 @@ branches:
 deploy:
   provider: heroku
   edge: true
-  api_key: cf9a4546-58ca-41b8-9832-435a7547511f
+  api_key: 39bdfede-b7e3-4546-a716-d38d91fcaf99
   app: allamvizsgafinal
   on:
     branch: main
