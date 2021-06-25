@@ -47,7 +47,7 @@
           <p>
             Csikszereda <br> Szabadság tér, 1. szám<br> Romania <br> 
             <strong>Phone:</strong> 063123213<br>
-            <strong>Email:</strong> valami@email@.com<br>
+            <strong>Email:</strong> kocsislaszlo@uni.sapientia.ro<br>
           </p>
 
           <div class="social-links">

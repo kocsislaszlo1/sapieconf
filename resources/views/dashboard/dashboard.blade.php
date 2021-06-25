@@ -7,10 +7,11 @@
 <div>
     <p>Vezérlőpult lehetőségek:</p>
     <ol>
-    	<li>Esemenyek létehozása, módosítása</li>
-    	<li>Szekciok, létehozása, módosítása</li>
-        <li>Eloadok, létehozása, módosítása</li>
-        
+    	<li>Események létehozása, módosítása</li>
+    	<li>Szekciók, létehozása, módosítása</li>
+        <li>Előadók, létehozása, módosítása</li>
+        <li>Moderátorok, létehozása, módosítása</li>
+        <li>Plenáris előadók, létehozása, módosítása</li>
     </ol>
 </div>
 
