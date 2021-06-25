@@ -11,6 +11,7 @@
 
       <div class="col-md-4">
         <div class="contact-address">
+          
           <i class="ion-ios-location-outline"></i>
           <h3>Address</h3>
            <address>Szabadság tér, 1. szám Románia, Csíkszereda </address> 
