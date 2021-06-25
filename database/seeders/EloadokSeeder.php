@@ -104,11 +104,60 @@ class EloadokSeeder extends Seeder
             ],
         
         ];
+        $pivot = [
+            [
+                'eloado_id' => 1,
+                'szekcio_id' => 1,
+            ],
+            [
+                'eloado_id' => 2,
+                'szekcio_id' => 2,
+            ],
+            [
+                'eloado_id' => 3,
+                'szekcio_id' => 3,
+            ],
+            [
+                'eloado_id' => 4,
+                'szekcio_id' => 4,
+            ],
+            [
+                'eloado_id' => 5,
+                'szekcio_id' => 5,
+            ],
+            [
+                'eloado_id' => 6,
+                'szekcio_id' => 1,
+            ],
+            [
+                'eloado_id' => 7,
+                'szekcio_id' => 2,
+            ],
+            [
+                'eloado_id' => 8,
+                'szekcio_id' => 3,
+            ],
+            [
+                'eloado_id' =>9,
+                'szekcio_id' => 4,
+            ],
+            [
+                'eloado_id' =>10 ,
+                'szekcio_id' => 5,
+            ],
         
+        ];
         foreach($eloadok as $eloado)
         {
             $elo=Eloadok::create($eloado);
-            $elo->szekciok()->sync(rand(1,5));
+           
         }
+        foreach($pivot as $piv)
+        {
+            $elo=Eloadok::find($piv['eloado_id'])
+            ->szekciok()
+            ->sync($piv['szekcio_id']);
+        }
+        
     }
 }
