@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label for="kivonat">kivonat:</label>
-                            <input type="text" class="form-control" name="kivonat" />
+                            <textarea class="form-control" name="kivonat" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="szekcio_id">szekciok:</label>

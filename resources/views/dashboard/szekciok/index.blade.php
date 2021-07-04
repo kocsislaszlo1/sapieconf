@@ -44,7 +44,7 @@
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger" type="submit">Szerkezt</button>
+                                            <button class="btn btn-danger" type="submit">Törlés</button>
                                         </form>
                                     </td>
                                 </tr>

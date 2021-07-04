@@ -17,7 +17,13 @@
                             @endforeach
                         </ul>
                     </div><br />
+                    
                 @endif
+                @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
                 <div class="table-responsive">
                     <table class=" table table-bordered table-striped table-hover">
                         <thead>

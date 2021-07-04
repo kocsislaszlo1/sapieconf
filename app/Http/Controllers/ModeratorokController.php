@@ -13,7 +13,6 @@ class ModeratorokController extends Controller
     {
 
         $moderatorok = Moderatorok::all();
-
         return view('dashboard.moderatorok.index', compact('moderatorok'));
     }
     public function create()

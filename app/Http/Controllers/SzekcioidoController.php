@@ -10,11 +10,12 @@ use App\Models\Eloadok;
 class SzekcioidoController extends Controller
 {
 
-    public  function delete($id)
+    public  function delete(Request $request,$id)
     {
-        $szekcio = Szekciok::find($id);
-        $szekcio->eloadok()->updateExistingPivot($szekcio,["kezdete"=>null,'vege'=>null]);
-        return redirect('/admin/szekciok')->with('status', 'idopont torolve');
+        $eloadok = Eloadok::find($id);
+        $szekcioid = $request->input('szekcio_id');
+        $eloadok->szekciok()->updateExistingPivot($szekcioid,["kezdete"=>null,'vege'=>null]);
+        return back()->with('status', 'idopont torolve');
     }
     public function edit($id)
     {
@@ -28,22 +29,22 @@ class SzekcioidoController extends Controller
     {
 
         $eloadok = Eloadok::find($id);
-        $elid = $request->input('szekcio_id');
+        $szekcioid = $request->input('szekcio_id');
         $kezdete = $request->input('kezd');
-        $eloadok->szekciok()->updateExistingPivot($elid, ['kezdete' => $kezdete]);
-
+        $eloadok->szekciok()->updateExistingPivot($szekcioid, ['kezdete' => $kezdete]);
+        
         $eloadok->save();
-        return redirect('/admin/szekciok')->with('status', 'ido frissitve');
+         return back()->with('status', 'ido frissitve');
     }
     public function update2(Request $request, $id)
     {
 
         $eloadok = Eloadok::find($id);
-        $elid = $request->input('szekcio_id');
+        $szekcioid = $request->input('szekcio_id');
         $vege = $request->input('vege');
-        $eloadok->szekciok()->updateExistingPivot($elid, ['vege' => $vege]);
+        $eloadok->szekciok()->updateExistingPivot($szekcioid, ['vege' => $vege]);
 
         $eloadok->save();
-        return redirect('/admin/szekciok')->with('status', 'ido frissitve');
+         return back()->with('status', 'ido frissitve');
     }
 }

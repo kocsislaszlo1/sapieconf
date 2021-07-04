@@ -33,7 +33,7 @@
                             <input type="text" class="form-control" name="link" value="{{ $szekcio->link }}" />
                         </div>
                         <div class="form-group">
-                            <label for="online">online:</label>
+                            <label for="online">online(1-igen/0-nem)</label>
                             <input type="number" class="form-control" name="online" value="{{ $szekcio->online }}" />
                         </div>
                         <div class="form-group">
