@@ -28,7 +28,7 @@ class EloadoController extends Controller
             'intezmeny' => 'required',
             'eloadascim' => 'required',
             'email' => 'required|email',
-            'kivonat' => 'required',
+            'kivonat' => 'required|max:255',
             'szekcio_id' => 'required|integer',
         ]);
         $eloadok = new Eloadok([
@@ -64,7 +64,7 @@ class EloadoController extends Controller
             'intezmeny' => 'required',
             'eloadascim' => 'required',
             'email' => 'required|email',
-            'kivonat' => 'required',
+            'kivonat' => 'required|max:255',
             'szekcio_id' => 'required|integer',
         ]);
         $szekciok = $request->input('szekcio_id');
