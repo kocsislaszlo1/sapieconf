@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="kivonat">kivonat:</label>
-                            <input type="text" class="form-control" name="kivonat" value="{{ $plenarisok->kivonat }}" />
+                            <textarea class="form-control" name="kivonat" rows="3">{{ $plenarisok->kivonat }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="kezdete">kezdete:</label>

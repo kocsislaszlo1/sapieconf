@@ -27,7 +27,7 @@ class PlenarisController extends Controller
             'intezmeny' => 'required',
             'eloadascim' => 'required',
             'email' => 'required|email',
-            'kivonat' => 'required',
+            'kivonat' => 'required|max:255',
             'kezdete' => 'required',
             'vege' => 'required',
             'esemenyek_id' => 'required|integer'
@@ -67,7 +67,7 @@ class PlenarisController extends Controller
             'intezmeny' => 'required',
             'eloadascim' => 'required',
             'email' => 'required|email',
-            'kivonat' => 'required',
+            'kivonat' => 'required|max:255',
             'kezdete' => 'required',
             'vege' => 'required',
             'esemenyek_id' => 'required|integer'
