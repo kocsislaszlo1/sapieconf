@@ -67,6 +67,7 @@ class EloadoController extends Controller
             'kivonat' => 'required|max:255',
             'szekcio_id' => 'required|integer',
         ]);
+        
         $szekciok = $request->input('szekcio_id');
         $eloadok = Eloadok::find($id);
         $eloadok->nev = $request->input('nev');
